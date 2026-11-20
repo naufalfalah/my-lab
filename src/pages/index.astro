@@ -1,0 +1,43 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../lib/url';
+import { formatDuration, formatLevel } from '../lib/format';
+
+const labs = (await getCollection('labs')).sort(
+  (a, b) => b.data.updated.valueOf() - a.data.updated.valueOf(),
+);
+---
+
+<BaseLayout title="my-lab">
+  <main class="home">
+    <section class="home-intro">
+      <h1>Labs</h1>
+      <p>Hands-on guides you can follow step by step.</p>
+    </section>
+
+    {labs.length === 0 ? (
+      <p class="empty">No labs yet.</p>
+    ) : (
+      <ul class="lab-list">
+        {labs.map((lab) => (
+          <li class="lab-card">
+            <a href={withBase(`labs/${lab.id}/`)}>
+              <h2>{lab.data.title}</h2>
+              <p>{lab.data.summary}</p>
+              <p class="lab-meta">
+                <span>{formatDuration(lab.data.duration)}</span>
+                <span>{formatLevel(lab.data.level)}</span>
+              </p>
+              {lab.data.tags.length > 0 && (
+                <ul class="tags">
+                  {lab.data.tags.map((t) => <li>{t}</li>)}
+                </ul>
+              )}
+            </a>
+          </li>
+        ))}
+      </ul>
+    )}
+  </main>
+</BaseLayout>

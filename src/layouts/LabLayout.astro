@@ -1,0 +1,127 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import type { MarkdownHeading } from 'astro';
+import BaseLayout from './BaseLayout.astro';
+import { withBase } from '../lib/url';
+import { formatDate, formatDuration, formatLevel } from '../lib/format';
+
+interface Props {
+  lab: CollectionEntry<'labs'>;
+  headings: MarkdownHeading[];
+}
+
+const { lab, headings } = Astro.props;
+const { title, summary, duration, level, updated } = lab.data;
+// Must match the numbering in src/lib/rehype-steps.mjs (one step per `##`).
+const steps = headings.filter((h) => h.depth === 2).map((h, i) => ({ n: i + 1, text: h.text }));
+---
+
+<BaseLayout title={title} description={summary}>
+  <div class="lab" data-lab data-duration={duration}>
+    <div class="lab-header">
+      <a class="back-link" href={withBase('')}>&larr; All labs</a>
+      <h1>{title}</h1>
+      <p class="lab-meta">
+        <span>{formatDuration(duration)}</span>
+        <span>{formatLevel(level)}</span>
+        <span>Updated <time datetime={updated.toISOString()}>{formatDate(updated)}</time></span>
+      </p>
+      <div class="progress" aria-hidden="true"><div class="progress-bar" data-progress></div></div>
+    </div>
+
+    <aside class="lab-sidebar">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="step-nav" data-nav-toggle>
+        <span data-step-counter>Steps</span>
+      </button>
+      <nav id="step-nav" class="step-nav" aria-label="Lab steps">
+        <ol>
+          {steps.map((s) => (
+            <li>
+              <a href={`#step-${s.n}`} data-step-link={s.n}>
+                <span class="step-num">{s.n}</span>
+                <span>{s.text}</span>
+              </a>
+            </li>
+          ))}
+        </ol>
+        <p class="remaining" data-remaining></p>
+      </nav>
+    </aside>
+
+    <main class="lab-main">
+      <article class="lab-content prose">
+        <slot />
+      </article>
+      <nav class="pager" aria-label="Step navigation">
+        <a class="btn btn-secondary" data-prev href="#">Back</a>
+        <a class="btn btn-primary" data-next href="#">Next</a>
+        <a class="btn btn-primary" data-done href={withBase('')}>Done</a>
+      </nav>
+    </main>
+  </div>
+
+  <!-- Inline so it runs before first paint: no flash of all steps. -->
+  <script is:inline>
+    (() => {
+      const root = document.querySelector('[data-lab]');
+      const sections = [...root.querySelectorAll('.step')];
+      if (!sections.length) return;
+
+      const links = [...root.querySelectorAll('[data-step-link]')];
+      const prev = root.querySelector('[data-prev]');
+      const next = root.querySelector('[data-next]');
+      const done = root.querySelector('[data-done]');
+      const counter = root.querySelector('[data-step-counter]');
+      const remainingEl = root.querySelector('[data-remaining]');
+      const progress = root.querySelector('[data-progress]');
+      const toggle = root.querySelector('[data-nav-toggle]');
+      const total = Number(root.dataset.duration) || 0;
+
+      // Estimate time per step from its word count.
+      const words = sections.map((s) => s.textContent.trim().split(/\s+/).length);
+      const allWords = words.reduce((a, b) => a + b, 0) || 1;
+
+      const indexFromHash = () => {
+        const id = decodeURIComponent(location.hash.slice(1));
+        const el = id && document.getElementById(id);
+        const step = el && el.closest('.step');
+        return step ? sections.indexOf(step) : 0;
+      };
+
+      const show = (i, scroll) => {
+        sections.forEach((s, j) => s.classList.toggle('is-active', j === i));
+        links.forEach((a, j) => {
+          a.classList.toggle('is-done', j < i);
+          if (j === i) a.setAttribute('aria-current', 'step');
+          else a.removeAttribute('aria-current');
+        });
+
+        const last = sections.length - 1;
+        prev.hidden = i === 0;
+        prev.href = `#step-${i}`;
+        next.hidden = i === last;
+        next.href = `#step-${i + 2}`;
+        done.hidden = i !== last;
+
+        const left = words.slice(i).reduce((a, b) => a + b, 0);
+        const minutes = Math.max(1, Math.round((total * left) / allWords));
+        remainingEl.textContent = total ? `About ${minutes} min remaining` : '';
+        progress.style.width = `${((i + 1) / sections.length) * 100}%`;
+        counter.textContent = `Step ${i + 1} of ${sections.length}: ${links[i] ? links[i].textContent.trim().replace(/^\d+\s*/, '') : ''}`;
+
+        toggle.setAttribute('aria-expanded', 'false');
+        root.classList.remove('nav-open');
+        if (scroll) root.scrollIntoView({ block: 'start' });
+      };
+
+      toggle.addEventListener('click', () => {
+        const open = root.classList.toggle('nav-open');
+        toggle.setAttribute('aria-expanded', String(open));
+      });
+      window.addEventListener('hashchange', () => show(indexFromHash(), true));
+
+      root.classList.add('is-ready');
+      show(indexFromHash(), false);
+    })();
+  </script>
+</BaseLayout>
