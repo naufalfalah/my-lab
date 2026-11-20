@@ -1,0 +1,29 @@
+---
+/**
+ * A value the organizers fill in later, e.g. '{{LINK_GOOGLE_FORM}}'.
+ * - Filled + `label`: renders a link.
+ * - Filled, no `label`: renders the value as text.
+ * - Unfilled: renders `fallback` if given, otherwise the raw placeholder,
+ *   highlighted, and warns during build so it is not forgotten.
+ */
+interface Props {
+  value: string;
+  label?: string;
+  fallback?: string;
+}
+
+const { value, label, fallback } = Astro.props;
+const unfilled = /^\{\{.+\}\}$/.test(value.trim());
+
+if (unfilled) {
+  console.warn(`[placeholder] ${value} belum diisi (${Astro.url.pathname})`);
+}
+---
+
+{unfilled ? (
+  fallback ? <span>{fallback}</span> : <span class="placeholder" title="Belum diisi panitia">{value}</span>
+) : label ? (
+  <a href={value} target="_blank" rel="noopener noreferrer">{label}</a>
+) : (
+  <span>{value}</span>
+)}

@@ -1,0 +1,434 @@
+---
+title: "Dari Skill ke Penawaran: Studi Kasus & Rate Card untuk Klien Pertamamu"
+summary: "Hands-On CREW 2026. Selesaikan masalah klien fiktif Laundry Bu Rina dalam 3 slide: studi kasus, visual solusi, dan rate card."
+duration: 70
+level: beginner
+tags: ["crew-2026", "portofolio", "pricing", "freelance"]
+updated: 2026-11-21
+---
+
+import Callout from '../../components/Callout.astro';
+import Duration from '../../components/Duration.astro';
+import Accordion from '../../components/Accordion.astro';
+import Placeholder from '../../components/Placeholder.astro';
+// Diisi panitia: ganti nilai di bawah ini. Selama belum diganti, halaman menampilkan penanda kuning.
+export const LINK_GOOGLE_FORM = '{{LINK_GOOGLE_FORM}}';
+export const LINK_TEMPLATE_CANVA = '{{LINK_TEMPLATE_CANVA}}';
+export const LINK_TEMPLATE_FIGMA = '{{LINK_TEMPLATE_FIGMA}}';
+export const LINK_TEMPLATE_SLIDES = '{{LINK_TEMPLATE_SLIDES}}';
+export const BATAS_PENGUMPULAN = '{{BATAS_PENGUMPULAN}}';
+
+## Ringkasan
+
+<Duration minutes={2} />
+
+Selamat datang di sesi **Hands-On Workshop: Rapid Individual Challenge** CREW 2026! Di sesi ini kamu akan mempraktikkan tiga topik yang baru saja dibahas (klien, studi kasus, dan pricing) dengan menyelesaikan masalah satu klien fiktif dari awal sampai penawaran.
+
+### Apa yang akan kamu buat
+
+**1 file berisi 3 slide** untuk klien fiktif **Laundry Bu Rina**:
+
+1. **Slide 1, Studi kasus singkat:** masalah Bu Rina, keputusanmu, dan dampak yang kamu harapkan.
+2. **Slide 2, Visual solusi:** rancangan solusi sesuai keahlianmu. Versi kasar (*low-fi*) sudah cukup.
+3. **Slide 3, Rate card:** paket harga dan ketentuan kerja yang kamu tawarkan ke Bu Rina.
+
+File dikumpulkan dalam bentuk **link** dengan nama `CREW2026_NamaLengkap_Jalur`.
+
+### Apa yang akan kamu pelajari
+
+- Menerjemahkan masalah klien menjadi solusi yang sesuai dengan kondisinya
+- Mengemas pekerjaanmu menjadi studi kasus yang jujur dan mudah dipahami
+- Menghitung harga dan menyusun penawaran yang jelas
+
+### Yang kamu butuhkan
+
+- Laptop dan koneksi internet
+- Akun Canva, Figma, atau Google
+- Salah satu template kosong 3 slide:
+  - <Placeholder value={LINK_TEMPLATE_CANVA} label="Template Canva" />
+  - <Placeholder value={LINK_TEMPLATE_FIGMA} label="Template Figma" />
+  - <Placeholder value={LINK_TEMPLATE_SLIDES} label="Template Google Slides" />
+- Kalkulator (kalkulator di HP juga boleh)
+
+### Alur waktu
+
+| Waktu (WIB) | Durasi | Kegiatan |
+| --- | --- | --- |
+| 10.35–10.45 | 10' | Brief dibacakan + sesi Tanya Klien + pilih jalur |
+| 10.45–11.05 | 20' | Slide 1: Studi kasus |
+| 11.05–11.25 | 20' | Slide 2: Visual solusi |
+| 11.25–11.40 | 15' | Slide 3: Rate card + cek mandiri |
+| 11.40–11.45 | 5' | Pengumpulan link |
+
+Setelah itu ada **Live Review (11.45–12.05)**. Pemateri akan membahas 3–4 karya peserta yang terpilih.
+
+<Callout type="tip">
+  Bagian ini cukup dibaca sekilas. Detail tiap slide ada di langkah-langkah berikutnya. Klik **Next** di bawah untuk lanjut.
+</Callout>
+
+## Kenali Klienmu
+
+<Duration minutes={8} />
+
+Sebelum mendesain atau ngoding apa pun, pahami dulu kliennya. Ingat pesan Topik 1: *klien tidak membeli desain atau kode, klien membeli masalah yang selesai.*
+
+### Brief klien: Laundry Bu Rina
+
+> **Klien:** Bu Rina, pemilik **Laundry Bu Rina**, laundry kiloan di sekitar kampus UPN "Veteran" Jakarta.
+
+**Tentang usaha**
+
+- **Usia usaha:** 4 tahun, 2 karyawan
+- **Volume:** ±40 order per hari, mayoritas pelanggan mahasiswa kos
+- **Jam buka:** setiap hari, 07.00–21.00
+- **Saluran order:** semua order dan pertanyaan masuk lewat **WhatsApp pribadi** Bu Rina
+- **Instagram:** punya akun, tapi terakhir posting **8 bulan lalu**
+
+**Daftar harga**
+
+| Layanan | Harga | Selesai |
+| --- | --- | --- |
+| Kiloan | Rp7.000/kg | 2 hari |
+| Express | Rp12.000/kg | 1 hari |
+| Satuan: bed cover | Rp25.000 | |
+| Satuan: sepatu | Rp30.000 | |
+
+**Masalah yang dirasakan Bu Rina**
+
+- ±**100 chat WhatsApp per hari**, kebanyakan menanyakan hal yang sama: harga, jam buka, dan *"cucian saya sudah selesai belum, Bu?"*
+- Karena kewalahan, chat dari **calon pelanggan baru sering terlambat dibalas**.
+- Pelanggan baru hampir semuanya datang dari mulut ke mulut. Bu Rina ingin **lebih banyak mahasiswa baru** tahu laundry-nya.
+
+**Permintaan Bu Rina (kutipan langsung)**
+
+> "Dik, saya mau dibikinin website, sekalian logo baru, sama konten IG sebulan ya. Budget saya Rp2,5 juta. Bisa selesai minggu depan kan? Revisinya sampai saya cocok ya. Bayarnya nanti setelah jadi aja."
+
+**Catatan:** Bu Rina tidak terbiasa dengan teknologi dan ingin bisa **mengelola sendiri** apa pun yang dibuat.
+
+### Sesi "Tanya Klien" (±5 menit)
+
+Pemateri akan berperan sebagai **Bu Rina**. Kirim pertanyaanmu lewat **chat Zoom**. Bu Rina hanya menjawab apa yang ditanyakan, jadi kualitas jawabannya tergantung pada kualitas pertanyaanmu.
+
+Pakai prinsip ***The Mom Test*** (dari buku Rob Fitzpatrick): tanyakan **kejadian nyata di masa lalu**, bukan pendapat atau pengandaian. Orang cenderung menjawab pengandaian dengan "iya" supaya sopan, sedangkan kejadian nyata memberi data yang bisa kamu pakai.
+
+✅ **Pertanyaan yang baik**
+
+- "Kemarin kira-kira ada berapa chat yang masuk, Bu? Paling banyak nanya apa?"
+- "Terakhir kali ada pelanggan yang kecewa, kejadiannya gimana, Bu?"
+- "Pelanggan baru yang datang bulan ini tahu Laundry Bu Rina dari mana?"
+
+❌ **Pertanyaan yang kurang baik**
+
+- "Kalau dibikinin website, Ibu bakal pakai nggak?" *(pengandaian, jawabannya hampir pasti "iya")*
+- "Logo baru itu penting kan, Bu?" *(menggiring ke jawaban yang kamu inginkan)*
+
+<Callout type="note" title="Catat jawabannya">
+  Catat jawaban Bu Rina selama sesi ini. Jawaban itu adalah **bahan utama Slide 1**, terutama bagian Masalah.
+</Callout>
+
+## Pilih Jalurmu
+
+<Duration minutes={2} />
+
+Pilih **satu** jalur yang paling sesuai dengan keahlianmu. Semua jalur menyelesaikan **masalah yang sama**, hanya caranya yang berbeda.
+
+| Jalur | Output Slide 2 (low-fi sudah cukup) | Tools disarankan |
+| --- | --- | --- |
+| **Web Dev** | Landing page sederhana: daftar harga, info order, tombol WhatsApp | VS Code, atau wireframe di Figma |
+| **UI/UX** | Alur + 2–3 layar kunci fitur cek status cucian | Figma |
+| **Desain Grafis** | Price list + 3 desain feed IG untuk mahasiswa kos | Canva / Figma |
+| **Motion/Konten** | Storyboard 6–8 panel atau draf video 15–30 detik untuk Reels/TikTok | CapCut / Canva |
+
+<Callout type="tip" title="Ingat Topik 1">
+  Pilih solusi yang **paling cocok dengan masalah dan batasan Bu Rina**, bukan yang paling canggih.
+</Callout>
+
+Jalur yang kamu pilih juga masuk ke nama file, misalnya `CREW2026_SitiAminah_UIUX`.
+
+## Slide 1: Studi Kasus
+
+<Duration minutes={20} />
+
+Ingat pesan Topik 2: *portofolio bukan galeri karya, tapi bukti bahwa kamu bisa menyelesaikan masalah.* Slide 1 dibuka dengan **masalah**, bukan dengan visual atau daftar tools.
+
+Isi bagian-bagian di bawah ini secara berurutan dari atas ke bawah slide. Perhatikan batas panjangnya karena satu slide harus bisa dibaca dalam waktu kurang dari satu menit.
+
+### 1. Judul berbasis masalah
+
+Pola: **Kata kerja + apa + untuk siapa + agar apa**.
+
+- ❌ "Website Laundry"
+- ✅ "Mengurangi Chat Berulang Laundry Bu Rina lewat Landing Page Sederhana"
+
+*Pertanyaan pemandu: masalah apa yang kamu selesaikan, dan dengan cara apa?*
+
+### 2. Label status
+
+Tulis **"Concept Project"** ditambah jalur atau peranmu, misalnya *Concept Project · UI/UX Designer*. Concept Project artinya proyek latihan, bukan pesanan klien sungguhan. Label ini membuat portofoliomu tetap jujur.
+
+### 3. Konteks (1–2 kalimat)
+
+Siapa kliennya dan bagaimana situasinya?
+
+### 4. Masalah (2–3 kalimat)
+
+Apa yang tidak berjalan, dan **kenapa itu penting bagi bisnis** Bu Rina? Pakai data dari brief dan dari jawaban sesi Tanya Klien.
+
+*Pertanyaan pemandu: kalau masalah ini dibiarkan, apa ruginya bagi Bu Rina?*
+
+### 5. Peran & keputusan kunci (2–3 poin)
+
+Apa yang kamu putuskan, dan **kenapa**? Pola yang membantu: *"Memilih X, bukan Y, karena..."*
+
+*Pertanyaan pemandu: dari permintaan Bu Rina, mana yang kamu dahulukan dan mana yang kamu tunda? Apa alasannya?*
+
+### 6. Dampak yang diharapkan (1–2 kalimat)
+
+Tulis sebagai **hipotesis**, yaitu dugaan yang bisa diuji, lengkap dengan **target** dan **cara mengukurnya**.
+
+<Callout type="warning" title="Jangan mengarang angka">
+  Proyek ini belum dijalankan, jadi hasilnya belum ada. Jangan menulis angka seolah sudah terjadi ("chat turun 50%"). Pakai kata **"diharapkan"**, **"target"**, atau **"hipotesis"**, dan sebutkan cara mengukurnya.
+</Callout>
+
+<Accordion title="Lihat contoh terisi (klien berbeda: Kedai Kopi Pojok)">
+
+Contoh ini sengaja memakai klien **lain**. Pakai untuk melihat *bentuknya*, bukan untuk menyalin isinya.
+
+**Memangkas Antrean Jam Makan Siang Kedai Kopi Pojok lewat Pre-Order WhatsApp**
+*Concept Project · UI/UX Designer*
+
+- **Konteks:** Kedai kopi kecil dekat kampus dengan 2 barista, paling ramai pukul 12.00–13.00.
+- **Masalah:** Antrean di jam sibuk membuat sebagian pembeli batal membeli (menurut pemilik, sekitar 15 orang per hari). Pemilik kehilangan penjualan justru di jam paling ramai.
+- **Peran & keputusan:** Merancang alur pre-order lewat menu digital + template pesan WhatsApp, **bukan aplikasi**, karena biayanya rendah dan barista sudah terbiasa dengan WhatsApp.
+- **Dampak yang diharapkan:** Target 20% transaksi jam sibuk berasal dari pre-order dalam 1 bulan (hipotesis; diukur dari jumlah pesanan pre-order per hari).
+
+</Accordion>
+
+## Slide 2: Visual Solusi
+
+<Duration minutes={20} />
+
+Sekarang wujudkan keputusanmu dari Slide 1 menjadi visual. Buka panduan sesuai jalur yang kamu pilih.
+
+<Accordion title="Web Dev: Landing page sederhana">
+
+**Yang ditampilkan:** landing page satu halaman untuk Laundry Bu Rina.
+
+**Minimum yang harus ada:**
+
+- *Hero* (bagian paling atas halaman): nama laundry + satu kalimat nilai utama
+- Daftar harga
+- Cara order
+- Tombol WhatsApp dengan **pesan otomatis**
+
+Masukkan **screenshot** halamanmu ke Slide 2. Link *live demo* boleh ditambahkan, tapi tidak wajib.
+
+**Tips:** tombol WhatsApp bisa langsung berisi pesan dengan format link berikut. Ganti nomornya dan sesuaikan pesannya (spasi ditulis `%20`):
+
+```text
+https://wa.me/628xxxxxxxxxx?text=Halo%20Bu%20Rina%2C%20saya%20mau%20cek%20status%20cucian%20atas%20nama%20...
+```
+
+</Accordion>
+
+<Accordion title="UI/UX: Alur + layar kunci cek status cucian">
+
+**Yang ditampilkan:** fitur cek status cucian.
+
+**Minimum yang harus ada:**
+
+- *User flow* singkat (3–5 langkah), yaitu urutan langkah pengguna dari awal sampai tujuannya tercapai
+- 2–3 layar kunci (*wireframe* juga boleh)
+
+**Tips:** ada dua pengguna di sini, yaitu **pelanggan** yang ingin tahu status cuciannya dan **Bu Rina** yang harus memperbarui status itu. Bu Rina tidak terbiasa dengan teknologi, jadi pastikan bagiannya bisa dikerjakan dengan langkah sesedikit mungkin.
+
+</Accordion>
+
+<Accordion title="Desain Grafis: Price list + 3 feed IG">
+
+**Yang ditampilkan:** price list dan 3 desain feed Instagram yang menyasar mahasiswa kos.
+
+**Minimum yang harus ada:**
+
+- Price list yang **terbaca dalam 5 detik**
+- 3 feed IG dengan **pesan berbeda**: harga, kecepatan, dan promo mahasiswa
+- Ditampilkan dalam *mockup* sederhana (misalnya bingkai layar HP)
+
+**Tips:** uji price list-mu dengan melihatnya selama 5 detik lalu menutupnya. Kalau kamu tidak ingat harga kiloan dan express, hierarki informasinya perlu diperbaiki.
+
+</Accordion>
+
+<Accordion title="Motion/Konten: Storyboard atau draf video">
+
+**Yang ditampilkan:** storyboard 6–8 panel atau draf video 15–30 detik untuk Reels/TikTok.
+
+**Minimum yang harus ada:**
+
+- *Hook* di 3 detik pertama, yaitu momen yang membuat penonton berhenti scroll
+- Pesan utama
+- *CTA* (*call to action*), yaitu ajakan yang jelas di akhir, misalnya "Chat WA sekarang"
+
+**Cara memasukkan ke slide:** upload video ke Google Drive, atur aksesnya ke *Anyone with the link can view*, lalu masukkan **thumbnail + link** video ke Slide 2.
+
+**Tips:** tulis hook-nya dulu sebelum hal lain. Kalau 3 detik pertama tidak menarik, sisa videonya tidak akan ditonton.
+
+</Accordion>
+
+<Callout type="note" title="Yang dinilai adalah cara berpikir, bukan kerapian">
+  Low-fi itu sah. Kotak abu-abu dan teks placeholder tidak masalah selama solusinya jelas menjawab masalah Bu Rina.
+</Callout>
+
+<Callout type="tip" title="Hubungkan visual dengan masalah">
+  Tambahkan **1 baris keterangan** di Slide 2 yang menjelaskan bagaimana visualmu menyelesaikan masalah. Contoh: *"Tombol WA berisi template cek status → mengurangi chat bolak-balik."*
+</Callout>
+
+## Slide 3: Rate Card
+
+<Duration minutes={15} />
+
+Ingat pesan Topik 3: *harga bukan tebakan. Harga adalah hasil hitungan yang dikunci dengan kesepakatan yang jelas.* **Rate card** adalah daftar paket dan harga jasamu. Kita susun dalam tiga bagian.
+
+### 5a. Hitung batas bawahmu
+
+Biaya menentukan **batas bawah**, yaitu harga terendah yang masih masuk akal untukmu. Salin worksheet ini (tombol **Copy** di pojok kanan atas), lalu isi dengan angkamu sendiri:
+
+```text
+Target penghasilan per bulan      : Rp ______
+Biaya operasional per bulan       : Rp ______  (internet, listrik, software, penyusutan laptop)
+Total kebutuhan                   : Rp ______
+Jam produktif yang bisa ditagih   : ______ jam/bulan  (realistis: ±4 jam × 20 hari = 80 jam)
+Rate per jam minimum              : Total ÷ jam = Rp ______
+Estimasi jam proyek               : ______ jam
+Harga dasar proyek                : jam × rate = Rp ______
++ Buffer revisi & risiko 20%      : Rp ______
+```
+
+Beberapa istilah:
+
+- **Jam produktif yang bisa ditagih:** jam yang benar-benar dipakai untuk mengerjakan proyek klien, tidak termasuk belajar, membalas chat, atau mencari klien. Karena itu angkanya jauh lebih kecil dari jam kerjamu.
+- **Buffer:** cadangan untuk revisi dan hal tak terduga. Tanpa buffer, setiap revisi menggerus penghasilanmu.
+
+<Accordion title="Lihat contoh terisi (Kedai Kopi Pojok)">
+
+<Callout type="note">
+  Angka di contoh ini hanya **ilustrasi**. Isi worksheet-mu dengan **angkamu sendiri**, karena target dan biaya setiap orang berbeda.
+</Callout>
+
+```text
+Target penghasilan per bulan      : Rp 5.000.000
+Biaya operasional per bulan       : Rp 1.000.000  (internet, listrik, software, penyusutan laptop)
+Total kebutuhan                   : Rp 6.000.000
+Jam produktif yang bisa ditagih   : 80 jam/bulan
+Rate per jam minimum              : 6.000.000 ÷ 80 = Rp 75.000
+Estimasi jam proyek               : 20 jam  (paket Basic)
+Harga dasar proyek                : 20 × 75.000 = Rp 1.500.000
++ Buffer revisi & risiko 20%      : Rp 1.800.000
+```
+
+</Accordion>
+
+<Callout type="tip" title="Bandingkan dengan pasar">
+  Pasar menentukan **kisaran** harga. Cek harga jasa serupa di Projects.co.id, Sribulancer, Fastwork, Upwork, atau akun freelancer di Instagram/LinkedIn sebagai pembanding.
+</Callout>
+
+### 5b. Susun paket bertingkat
+
+Buat 3 paket: **Basic**, **Standard**, dan **Premium**. Setiap paket wajib memuat:
+
+| | Basic | Standard | Premium |
+| --- | --- | --- | --- |
+| Isi deliverable (hasil yang diserahkan) | | | |
+| Jumlah revisi | | | |
+| Durasi pengerjaan | | | |
+| Harga | | | |
+
+Paket bertingkat memberi klien pilihan, dan setiap kenaikan harga harus diikuti **tambahan isi** yang jelas.
+
+### 5c. Tulis ketentuan
+
+Ketentuan adalah "aturan main" yang melindungi kamu dan klien. Pastikan rate card-mu mencakup semuanya:
+
+- [ ] Ruang lingkup (*scope*) dan deliverables jelas
+- [ ] Batas revisi + biaya revisi tambahan
+- [ ] Termin pembayaran, termasuk **DP** (*down payment* atau uang muka) sebelum mulai
+- [ ] Biaya pihak ketiga (domain, hosting, aset berbayar) ditanggung siapa
+- [ ] Hal yang **tidak termasuk** dalam paket
+- [ ] Garansi atau masa perbaikan
+- [ ] Timeline dimulai setelah DP dan materi dari klien diterima
+- [ ] Masa berlaku penawaran
+
+<Accordion title="Lihat contoh rate card ringkas (Kedai Kopi Pojok)">
+
+- **Dasar hitung:** Rp6 juta ÷ 80 jam = Rp75 ribu/jam + buffer 20%.
+- **Basic, Rp1,8 juta:** menu digital + template WA, 2x revisi, 5 hari kerja.
+- **Standard, Rp3 juta:** Basic + desain QR meja dan poster kasir.
+- **Premium, Rp4,5 juta:** Standard + 8 konten IG peluncuran.
+- **Ketentuan:** DP 50%, revisi tambahan Rp150 ribu, aset foto disediakan klien, garansi perbaikan 14 hari, penawaran berlaku 14 hari.
+
+</Accordion>
+
+<Callout type="warning" title="Tantangan: permintaan yang tidak masuk akal">
+  Baca lagi permintaan Bu Rina. Ada beberapa hal yang tidak realistis soal **budget**, **waktu**, **revisi**, dan **pembayaran**. Bagaimana penawaranmu menanganinya **tanpa sekadar menolak**, dan juga tanpa menuruti semuanya?
+
+  Petunjuk:
+  - Bisakah permintaannya dipecah menjadi beberapa tahap?
+  - Aturan emas Topik 3: **jangan turunkan harga tanpa mengurangi scope.**
+  - *Bagus, Cepat, Murah: pilih dua.*
+</Callout>
+
+## Cek Mandiri Sebelum Kumpul
+
+<Duration minutes={3} />
+
+Cek file-mu dengan daftar di bawah ini. Daftar ini **sama dengan kriteria Live Review**, jadi semakin banyak yang tercentang, semakin besar peluang karyamu dibahas.
+
+- [ ] **Slide 1 dibuka dengan masalah dan dampak**, bukan dengan visual atau daftar tools.
+- [ ] **Solusiku sesuai batasan Bu Rina**: budget, kemampuannya memakai teknologi, dan waktu.
+- [ ] **Aku jujur**: ada label Concept Project, dan dampak ditulis sebagai hipotesis, bukan hasil yang seolah sudah terjadi.
+- [ ] **Rate card-ku punya dasar hitung, scope, batas revisi, dan termin pembayaran.**
+- [ ] **Aku menangani permintaan yang tidak realistis dengan cerdas**, tidak sekadar menolak atau menuruti semuanya.
+
+## Kumpulkan
+
+<Duration minutes={2} />
+
+1. **Atur akses link.** Klik **Share** di Canva, Figma, atau Google Slides, ubah akses umum menjadi **Anyone with the link**, pilih **can view** (atau *Viewer*), lalu salin link-nya.
+2. **Cek nama file:** `CREW2026_NamaLengkap_Jalur`, misalnya `CREW2026_SitiAminah_UIUX`.
+3. **Kumpulkan lewat formulir:** <Placeholder value={LINK_GOOGLE_FORM} label="Buka formulir pengumpulan" /> sebelum pukul **<Placeholder value={BATAS_PENGUMPULAN} fallback="11.40 WIB" />**.
+
+Siapkan isian formulirnya:
+
+- Nama
+- Prodi
+- Jalur
+- Link file
+- 1 kalimat ringkasan solusimu
+
+<Callout type="tip" title="Tes link-mu dulu">
+  Buka link-mu di jendela *incognito*. Kalau file-nya bisa dibuka tanpa login, berarti aksesnya sudah benar. Mengumpulkan PDF juga boleh: unggah dulu ke Google Drive, lalu bagikan link-nya dengan akses yang sama.
+</Callout>
+
+## Selamat & Langkah Berikutnya
+
+<Duration minutes={1} />
+
+Selamat, kamu sudah menyelesaikan tantangannya! 🎉
+
+Dalam ±1 jam, kamu sudah membuat **studi kasus portofolio pertamamu**: masalah yang jelas, solusi yang sesuai dengan kondisi klien, dan penawaran yang punya dasar hitung. Bagi banyak kreator, ini adalah bagian yang paling sering terlewat.
+
+### Setelah acara
+
+- **Sempurnakan** ketiga slide-mu. Rapikan visualnya, perjelas keputusan-keputusanmu, dan lengkapi rate card-nya.
+- **Jadikan portofolio.** Tetap pakai label **Concept Project**, karena kejujuran adalah bagian dari nilai yang kamu tawarkan.
+- **Pakai kerangkanya lagi** untuk proyek berikutnya, baik proyek kuliah, proyek pribadi, maupun klien sungguhan.
+
+### Referensi lanjutan
+
+- **Jobs to Be Done**: Clayton Christensen, *Competing Against Luck*
+- **Value Proposition Canvas**: Strategyzer, *Value Proposition Design*
+- *The Mom Test*: Rob Fitzpatrick
+- **The Futur** (Chris Do) di YouTube
+- *Outcomes Over Output*: Joshua Seiden
+- *Pricing Creativity*: Blair Enns
+
+Sampai jumpa di **Live Review (11.45–12.05)**!

@@ -1,0 +1,14 @@
+---
+/** Collapsible block (native <details>, works without JS). */
+interface Props {
+  title: string;
+  open?: boolean;
+}
+
+const { title, open = false } = Astro.props;
+---
+
+<details class="accordion" open={open}>
+  <summary>{title}</summary>
+  <div class="accordion-body"><slot /></div>
+</details>

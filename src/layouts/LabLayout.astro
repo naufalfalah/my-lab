@@ -77,9 +77,59 @@ const steps = headings.filter((h) => h.depth === 2).map((h, i) => ({ n: i + 1, t
       const toggle = root.querySelector('[data-nav-toggle]');
       const total = Number(root.dataset.duration) || 0;
 
-      // Estimate time per step from its word count.
+      // Time per step: <Duration minutes> when every step has one,
+      // otherwise the total `duration` split by word count.
+      const sum = (arr) => arr.reduce((a, b) => a + b, 0);
+      const stepMinutes = sections.map((s) => Number(s.querySelector('[data-minutes]')?.dataset.minutes) || 0);
+      const hasStepMinutes = stepMinutes.every((m) => m > 0);
       const words = sections.map((s) => s.textContent.trim().split(/\s+/).length);
-      const allWords = words.reduce((a, b) => a + b, 0) || 1;
+      const minutesLeft = (i) =>
+        hasStepMinutes ? sum(stepMinutes.slice(i)) : Math.round((total * sum(words.slice(i))) / (sum(words) || 1));
+
+      if (hasStepMinutes) {
+        links.forEach((a, j) => {
+          const span = document.createElement('span');
+          span.className = 'step-min';
+          span.textContent = `${stepMinutes[j]} min`;
+          a.append(span);
+        });
+      }
+
+      // Copy button on code blocks.
+      root.querySelectorAll('.lab-content pre').forEach((pre) => {
+        const wrap = document.createElement('div');
+        wrap.className = 'code-block';
+        pre.replaceWith(wrap);
+        wrap.append(pre);
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'copy-btn';
+        btn.textContent = 'Copy';
+        btn.addEventListener('click', async () => {
+          try {
+            await navigator.clipboard.writeText(pre.innerText.replace(/\n$/, ''));
+            btn.textContent = 'Copied';
+          } catch {
+            btn.textContent = 'Copy failed';
+          }
+          setTimeout(() => (btn.textContent = 'Copy'), 1500);
+        });
+        wrap.append(btn);
+      });
+
+      // Make Markdown task lists clickable; remember state per browser.
+      root.querySelectorAll('.lab-content input[type="checkbox"]').forEach((box, j) => {
+        const key = `my-lab:${location.pathname}:check:${j}`;
+        box.disabled = false;
+        try {
+          box.checked = localStorage.getItem(key) === '1';
+        } catch {}
+        box.addEventListener('change', () => {
+          try {
+            localStorage.setItem(key, box.checked ? '1' : '0');
+          } catch {}
+        });
+      });
 
       const indexFromHash = () => {
         const id = decodeURIComponent(location.hash.slice(1));
@@ -103,11 +153,11 @@ const steps = headings.filter((h) => h.depth === 2).map((h, i) => ({ n: i + 1, t
         next.href = `#step-${i + 2}`;
         done.hidden = i !== last;
 
-        const left = words.slice(i).reduce((a, b) => a + b, 0);
-        const minutes = Math.max(1, Math.round((total * left) / allWords));
-        remainingEl.textContent = total ? `About ${minutes} min remaining` : '';
+        const minutes = Math.max(1, minutesLeft(i));
+        remainingEl.textContent = total || hasStepMinutes ? `About ${minutes} min remaining` : '';
         progress.style.width = `${((i + 1) / sections.length) * 100}%`;
-        counter.textContent = `Step ${i + 1} of ${sections.length}: ${links[i] ? links[i].textContent.trim().replace(/^\d+\s*/, '') : ''}`;
+        const stepTitle = links[i]?.querySelector('span:not(.step-num):not(.step-min)')?.textContent.trim() ?? '';
+        counter.textContent = `Step ${i + 1} of ${sections.length}: ${stepTitle}`;
 
         toggle.setAttribute('aria-expanded', 'false');
         root.classList.remove('nav-open');
