@@ -12,11 +12,10 @@ import Duration from '../../components/Duration.astro';
 import Accordion from '../../components/Accordion.astro';
 import Placeholder from '../../components/Placeholder.astro';
 // Diisi panitia: ganti nilai di bawah ini. Selama belum diganti, halaman menampilkan penanda kuning.
-export const LINK_GOOGLE_FORM = '{{LINK_GOOGLE_FORM}}';
+export const LINK_GOOGLE_FORM = 'https://docs.google.com/forms/d/e/1FAIpQLSd9r0G6gvBAQWH6gPg5r8CnKvapeDn-T-jpDus-TAG9-p05ig/viewform';
 export const LINK_TEMPLATE_CANVA = '{{LINK_TEMPLATE_CANVA}}';
 export const LINK_TEMPLATE_FIGMA = '{{LINK_TEMPLATE_FIGMA}}';
 export const LINK_TEMPLATE_SLIDES = '{{LINK_TEMPLATE_SLIDES}}';
-export const BATAS_PENGUMPULAN = '{{BATAS_PENGUMPULAN}}';
 
 ## Ringkasan
 
@@ -44,26 +43,9 @@ File dikumpulkan dalam bentuk **link** dengan nama `CREW2026_NamaLengkap_Jalur`.
 
 - Laptop dan koneksi internet
 - Akun Canva, Figma, atau Google
-- Salah satu template kosong 3 slide:
-  - <Placeholder value={LINK_TEMPLATE_CANVA} label="Template Canva" />
-  - <Placeholder value={LINK_TEMPLATE_FIGMA} label="Template Figma" />
-  - <Placeholder value={LINK_TEMPLATE_SLIDES} label="Template Google Slides" />
-- Kalkulator (kalkulator di HP juga boleh)
-
-### Alur waktu
-
-| Waktu (WIB) | Durasi | Kegiatan |
-| --- | --- | --- |
-| 10.35–10.45 | 10' | Brief dibacakan + sesi Tanya Klien + pilih jalur |
-| 10.45–11.05 | 20' | Slide 1: Studi kasus |
-| 11.05–11.25 | 20' | Slide 2: Visual solusi |
-| 11.25–11.40 | 15' | Slide 3: Rate card + cek mandiri |
-| 11.40–11.45 | 5' | Pengumpulan link |
-
-Setelah itu ada **Live Review (11.45–12.05)**. Pemateri akan membahas 3–4 karya peserta yang terpilih.
 
 <Callout type="tip">
-  Bagian ini cukup dibaca sekilas. Detail tiap slide ada di langkah-langkah berikutnya. Klik **Next** di bawah untuk lanjut.
+  Detail tiap slide ada di langkah-langkah berikutnya. Klik **Next** di bawah untuk lanjut.
 </Callout>
 
 ## Kenali Klienmu
@@ -104,12 +86,6 @@ Sebelum mendesain atau ngoding apa pun, pahami dulu kliennya. Ingat pesan Topik 
 > "Dik, saya mau dibikinin website, sekalian logo baru, sama konten IG sebulan ya. Budget saya Rp2,5 juta. Bisa selesai minggu depan kan? Revisinya sampai saya cocok ya. Bayarnya nanti setelah jadi aja."
 
 **Catatan:** Bu Rina tidak terbiasa dengan teknologi dan ingin bisa **mengelola sendiri** apa pun yang dibuat.
-
-### Sesi "Tanya Klien" (±5 menit)
-
-Pemateri akan berperan sebagai **Bu Rina**. Kirim pertanyaanmu lewat **chat Zoom**. Bu Rina hanya menjawab apa yang ditanyakan, jadi kualitas jawabannya tergantung pada kualitas pertanyaanmu.
-
-Pakai prinsip ***The Mom Test*** (dari buku Rob Fitzpatrick): tanyakan **kejadian nyata di masa lalu**, bukan pendapat atau pengandaian. Orang cenderung menjawab pengandaian dengan "iya" supaya sopan, sedangkan kejadian nyata memberi data yang bisa kamu pakai.
 
 ✅ **Pertanyaan yang baik**
 
@@ -394,7 +370,7 @@ Cek file-mu dengan daftar di bawah ini. Daftar ini **sama dengan kriteria Live R
 
 1. **Atur akses link.** Klik **Share** di Canva, Figma, atau Google Slides, ubah akses umum menjadi **Anyone with the link**, pilih **can view** (atau *Viewer*), lalu salin link-nya.
 2. **Cek nama file:** `CREW2026_NamaLengkap_Jalur`, misalnya `CREW2026_SitiAminah_UIUX`.
-3. **Kumpulkan lewat formulir:** <Placeholder value={LINK_GOOGLE_FORM} label="Buka formulir pengumpulan" /> sebelum pukul **<Placeholder value={BATAS_PENGUMPULAN} fallback="11.40 WIB" />**.
+3. **Kumpulkan lewat formulir:** <Placeholder value={LINK_GOOGLE_FORM} label="Buka formulir pengumpulan" />.
 
 Siapkan isian formulirnya:
 
@@ -430,5 +406,3 @@ Dalam ±1 jam, kamu sudah membuat **studi kasus portofolio pertamamu**: masalah 
 - **The Futur** (Chris Do) di YouTube
 - *Outcomes Over Output*: Joshua Seiden
 - *Pricing Creativity*: Blair Enns
-
-Sampai jumpa di **Live Review (11.45–12.05)**!
